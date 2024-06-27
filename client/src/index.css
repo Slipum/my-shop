@@ -1,0 +1,19 @@
+* {
+	font-family: 'Segoe UI', sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+a {
+	color: black;
+}
+
+body {
+	background-color: #dcdcdc;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	padding: 0 20px;
+}

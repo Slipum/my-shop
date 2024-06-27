@@ -21,3 +21,7 @@ export const addToCart = (productId) => api.post('/cart', { productId });
 export const getCart = () => api.get('/cart');
 
 export const removeFromCart = (productId) => api.delete(`/cart/${productId}`);
+
+export const getUserProfile = () => api.get('/profile');
+
+export const logoutUser = () => api.post('/auth/logout');

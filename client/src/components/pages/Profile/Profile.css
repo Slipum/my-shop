@@ -1,0 +1,18 @@
+.profile-container {
+	display: flex;
+	flex-direction: column;
+	background-color: #fff;
+	width: 100%;
+	max-width: 920px;
+	padding: 25px;
+	border-radius: 10px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.profile-details {
+	margin-top: 20px;
+}
+
+.profile-details p {
+	margin-bottom: 10px;
+}

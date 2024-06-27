@@ -54,10 +54,19 @@ router.post('/login', (req, res) => {
 });
 
 router.post('/logout', (req, res) => {
-	req.session.destroy((err) => {
-		if (err) throw err;
-		res.status(200).send('Logged out');
-	});
+	if (req.session.userId) {
+		req.session.destroy((err) => {
+			if (err) {
+				console.error(err);
+				res.status(500).send('Failed to logout');
+			} else {
+				res.clearCookie('connect.sid');
+				res.status(200).send('Logged out');
+			}
+		});
+	} else {
+		res.status(401).send('Not logged in');
+	}
 });
 
 module.exports = router;

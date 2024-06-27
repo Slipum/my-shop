@@ -6,21 +6,25 @@
 
 ## 2. Технологический стек
 
+<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
 Проект использует следующие технологии:
 
 - **Frontend:**
 
-  - **React** - JavaScript библиотека для построения пользовательских интерфейсов.
-  - **React Router** - Для маршрутизации внутри приложения.
-  - **Axios** - HTTP клиент для взаимодействия с сервером.
-  - **HTML** и **CSS** - Основные языки разметки и стилизации.
+  - **<i class="fab fa-react"></i> React** - JavaScript библиотека для создания пользовательских интерфейсов.
+  - **<i class="fas fa-route"></i> React Router** - Для клиентской маршрутизации в приложении.
+  - **<i class="fas fa-arrow-right"></i> Axios** - HTTP клиент для взаимодействия с сервером.
+  - **<i class="fab fa-html5"></i> HTML** и **<i class="fab fa-css3-alt"></i> CSS** - Основные языки разметки и стилизации.
 
 - **Backend:**
-  - **Node.js** - Среда выполнения JavaScript на сервере.
-  - **Express.js** - Веб-фреймворк для создания API и обработки запросов.
-  - **SQLite** - Локальная база данных для хранения пользовательских данных и информации о продуктах.
-  - **Bcrypt.js** - Библиотека для хеширования паролей пользователей.
-  - **Express Session** и **Connect-SQLite3** - Для управления сессиями пользователей и хранения сессий в SQLite базе данных.
+  - **<i class="fab fa-node"></i> Node.js** - JavaScript среда выполнения на сервере.
+  - **<i class="fab fa-js"></i> Express.js** - Веб-фреймворк для создания API и обработки запросов.
+  - **<i class="fas fa-database"></i> SQLite** - Локальная база данных для хранения данных пользователей и информации о продуктах.
+  - **<i class="fas fa-lock"></i> Bcrypt.js** - Библиотека для безопасного хеширования паролей пользователей.
+  - **<i class="fas fa-user-lock"></i> Express Session** и **<i class="fas fa-database"></i> Connect-SQLite3** - Для управления сеансами пользователей и хранения сеансов в базе данных SQLite.
 
 ## 3. Клиентская часть
 

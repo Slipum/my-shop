@@ -14,3 +14,13 @@ export const login = (username, password) =>
 export const logout = () => api.post('/auth/logout');
 
 export const getUsers = () => api.get('/admin/users');
+
+export const getProducts = () => api.get('/products');
+
+export const addToCart = (productId) =>
+    api.post('/cart', { productId });
+
+export const getCart = () => api.get('/cart');
+
+export const removeFromCart = (productId) =>
+    api.delete(`/cart/${productId}`);

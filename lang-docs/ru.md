@@ -10,17 +10,19 @@
 
 - **Frontend:**
 
-  - **React** - JavaScript библиотека для создания пользовательских интерфейсов.
-  - **React Router** - Для клиентской маршрутизации в приложении.
-  - **Axios** - HTTP клиент для взаимодействия с сервером.
-  - **HTML** и **CSS** - Основные языки разметки и стилизации.
+  - ![React](https://img.shields.io/badge/-React-61DAFB?logo=react&logoColor=white&style=flat) JavaScript библиотека для создания пользовательских интерфейсов.
+  - ![React Router](https://img.shields.io/badge/-React_Router-CA4245?logo=react-router&logoColor=white&style=flat) Для клиентской маршрутизации в приложении.
+  - ![Axios](https://img.shields.io/badge/-Axios-61DAFB?logo=axios&logoColor=white&style=flat) HTTP клиент для взаимодействия с сервером.
+  - ![HTML](https://img.shields.io/badge/-HTML-E34F26?logo=html5&logoColor=white&style=flat) Основной язык разметки.
+  - ![CSS](https://img.shields.io/badge/-CSS-1572B6?logo=css3&logoColor=white&style=flat) Основной язык стилизации.
 
 - **Backend:**
-  - **Node.js** - JavaScript среда выполнения на сервере.
-  - **Express.js** - Веб-фреймворк для создания API и обработки запросов.
-  - **SQLite** - Локальная база данных для хранения данных пользователей и информации о продуктах.
-  - **Bcrypt.js** - Библиотека для безопасного хеширования паролей пользователей.
-  - **Express Session** и **Connect-SQLite3** - Для управления сеансами пользователей и хранения сеансов в базе данных SQLite.
+  - ![Node.js](https://img.shields.io/badge/-Node.js-339933?logo=node.js&logoColor=white&style=flat) JavaScript среда выполнения на сервере.
+  - ![Express.js](https://img.shields.io/badge/-Express.js-000000?logo=express&logoColor=white&style=flat) Веб-фреймворк для создания API и обработки запросов.
+  - ![SQLite](https://img.shields.io/badge/-SQLite-003B57?logo=sqlite&logoColor=white&style=flat) Локальная база данных для хранения данных пользователей и информации о продуктах.
+  - ![Bcrypt.js](https://img.shields.io/badge/-Bcrypt.js-2A2D2E?logo=npm&logoColor=white&style=flat) Библиотека для безопасного хеширования паролей пользователей.
+  - ![Express Session](https://img.shields.io/badge/-Express_Session-000000?logo=express&logoColor=white&style=flat) Для управления сеансами пользователей.
+  - ![Connect-SQLite3](https://img.shields.io/badge/-Connect_SQLite3-003B57?style=flat) Для хранения сеансов в базе данных SQLite.
 
 ## 3. Клиентская часть
 

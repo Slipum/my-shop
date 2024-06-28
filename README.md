@@ -12,17 +12,19 @@ The project utilizes the following technologies:
 
 - **Frontend:**
 
-  - **React** - JavaScript library for building user interfaces.
-  - **React Router** - For client-side routing within the application.
-  - **Axios** - HTTP client for interacting with the server.
-  - **HTML** and **CSS** - Core markup and styling languages.
+  - ![React](https://img.shields.io/badge/-React-61DAFB?logo=react&logoColor=white&style=flat) JavaScript library for building user interfaces.
+  - ![React Router](https://img.shields.io/badge/-React_Router-CA4245?logo=react-router&logoColor=white&style=flat) For client-side routing within the application.
+  - ![Axios](https://img.shields.io/badge/-Axios-61DAFB?logo=axios&logoColor=white&style=flat) HTTP client for interacting with the server.
+  - ![HTML](https://img.shields.io/badge/-HTML-E34F26?logo=html5&logoColor=white&style=flat) Markup language for creating web pages.
+  - ![CSS](https://img.shields.io/badge/-CSS-1572B6?logo=css3&logoColor=white&style=flat) Style sheet language for designing web pages.
 
 - **Backend:**
-  - **Node.js** - JavaScript runtime environment on the server.
-  - **Express.js** - Web framework for creating APIs and handling requests.
-  - **SQLite** - Local database for storing user data and product information.
-  - **Bcrypt.js** - Library for hashing user passwords securely.
-  - **Express Session** and **Connect-SQLite3** - For managing user sessions and storing sessions in SQLite database.
+  - ![Node.js](https://img.shields.io/badge/-Node.js-339933?logo=node.js&logoColor=white&style=flat) JavaScript runtime environment on the server.
+  - ![Express.js](https://img.shields.io/badge/-Express.js-000000?logo=express&logoColor=white&style=flat) Web framework for creating APIs and handling requests.
+  - ![SQLite](https://img.shields.io/badge/-SQLite-003B57?logo=sqlite&logoColor=white&style=flat) Local database for storing user data and product information.
+  - ![Bcrypt.js](https://img.shields.io/badge/-Bcrypt.js-2A2D2E?logo=npm&logoColor=white&style=flat) Library for hashing user passwords securely.
+  - ![Express Session](https://img.shields.io/badge/-Express_Session-000000?logo=express&logoColor=white&style=flat) For managing user sessions.
+  - ![Connect-SQLite3](https://img.shields.io/badge/-Connect_SQLite3-003B57?style=flat) For storing sessions in SQLite database.
 
 ## 3. Client-side
 

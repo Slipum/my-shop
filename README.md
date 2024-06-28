@@ -8,25 +8,21 @@ This project is an online shop with basic functionalities for user registration,
 
 ## 2. Technology Stack
 
-<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-
 The project utilizes the following technologies:
 
 - **Frontend:**
 
-  - **:react: React** - JavaScript library for building user interfaces.
-  - **<i class="fas fa-route"></i> React Router** - For client-side routing within the application.
-  - **<i class="fas fa-arrow-right"></i> Axios** - HTTP client for interacting with the server.
-  - **<i class="fab fa-html5"></i> HTML** and **<i class="fab fa-css3-alt"></i> CSS** - Core markup and styling languages.
+  - **React** - JavaScript library for building user interfaces.
+  - **React Router** - For client-side routing within the application.
+  - **Axios** - HTTP client for interacting with the server.
+  - **HTML** and **CSS** - Core markup and styling languages.
 
 - **Backend:**
-  - **<i class="fab fa-node"></i> Node.js** - JavaScript runtime environment on the server.
-  - **<i class="fab fa-js"></i> Express.js** - Web framework for creating APIs and handling requests.
-  - **<i class="fas fa-database"></i> SQLite** - Local database for storing user data and product information.
-  - **<i class="fas fa-lock"></i> Bcrypt.js** - Library for hashing user passwords securely.
-  - **<i class="fas fa-user-lock"></i> Express Session** and **<i class="fas fa-database"></i> Connect-SQLite3** - For managing user sessions and storing sessions in SQLite database.
+  - **Node.js** - JavaScript runtime environment on the server.
+  - **Express.js** - Web framework for creating APIs and handling requests.
+  - **SQLite** - Local database for storing user data and product information.
+  - **Bcrypt.js** - Library for hashing user passwords securely.
+  - **Express Session** and **Connect-SQLite3** - For managing user sessions and storing sessions in SQLite database.
 
 ## 3. Client-side
 

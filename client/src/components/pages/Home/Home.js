@@ -1,12 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Header from '../../business/Header/Header';
 import './Home.css';
 
 const Home = () => {
 	return (
 		<div>
-			<h1>Welcome to the Online Shop!</h1>
-			<Link to="/login">Login</Link> | <Link to="/register">Register</Link>
+			<Header />
+			<h1 className="tag">Welcome to the Online Shop!</h1>
 		</div>
 	);
 };

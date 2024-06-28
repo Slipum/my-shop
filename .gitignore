@@ -3,6 +3,9 @@
 shop.db
 sessions
 
+# --- For Server ---
+/server/uploads
+
 # --- For Client ---
 # dependencies
 /node_modules

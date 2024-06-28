@@ -32,13 +32,13 @@ const Register = () => {
 	};
 
 	return (
-		<div>
+		<div className="auntification">
 			<div className="icon-container">
 				<a href="/">
 					<i className="fa-solid fa-right-from-bracket"></i>
 				</a>
 			</div>
-			<div className="container">
+			<div className="reg-container">
 				<form onSubmit={handleSubmit} id="mainForm">
 					<h2>Sing up</h2>
 					<div className="form-controll">

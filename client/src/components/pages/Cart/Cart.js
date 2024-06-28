@@ -1,35 +1,43 @@
 import React, { useEffect, useState } from 'react';
-import { getCart, removeFromCart } from '../../../api';
-import './index.css';
+import { getCart } from '../../../api';
+import './Cart.css';
 
 const Cart = () => {
 	const [cartItems, setCartItems] = useState([]);
+	const [error, setError] = useState(null);
 
 	useEffect(() => {
-		const fetchCart = async () => {
-			const response = await getCart();
-			setCartItems(response.data);
+		const fetchCartItems = async () => {
+			try {
+				const response = await getCart();
+				setCartItems(response.data);
+			} catch (error) {
+				console.error('Error fetching cart items:', error);
+				setError(`Failed to load cart items: ${error.message}`);
+			}
 		};
-		fetchCart();
+
+		fetchCartItems();
 	}, []);
 
-	const handleRemoveFromCart = (id) => {
-		removeFromCart(id);
-		setCartItems(cartItems.filter((item) => item.id !== id));
-	};
-
 	return (
-		<div>
-			<h1>Your Cart</h1>
-			<ul>
-				{cartItems.map((item) => (
-					<li key={item.id}>
-						<h2>{item.product_name}</h2>
-						<p>Quantity: {item.quantity}</p>
-						<button onClick={() => handleRemoveFromCart(item.id)}>Remove</button>
-					</li>
-				))}
-			</ul>
+		<div className="cart-container">
+			<h2>Shopping Cart</h2>
+			{error ? (
+				<div className="error">{error}</div>
+			) : (
+				<ul>
+					{Array.isArray(cartItems) && cartItems.length > 0 ? (
+						cartItems.map((item) => (
+							<li key={item.id}>
+								{item.name} - {item.quantity}
+							</li>
+						))
+					) : (
+						<li>No items in cart</li>
+					)}
+				</ul>
+			)}
 		</div>
 	);
 };

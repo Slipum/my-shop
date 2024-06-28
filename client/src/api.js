@@ -14,6 +14,15 @@ export const logout = () => api.post('/auth/logout');
 
 export const getUsers = () => api.get('/admin/users');
 
+export const addProduct = (formData) =>
+	api.post('/admin/products', formData, {
+		headers: {
+			'Content-Type': 'multipart/form-data',
+		},
+	});
+
+export const deleteProduct = (productId) => api.delete(`/admin/products/${productId}`);
+
 export const getProducts = () => api.get('/products');
 
 export const addToCart = (productId) => api.post('/cart', { productId });

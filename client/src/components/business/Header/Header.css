@@ -1,0 +1,48 @@
+.header-container {
+	background-color: #f4f4f4;
+	color: #333;
+	font-size: 16px;
+	line-height: 1.6;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #333;
+	padding: 10px 20px;
+	color: white;
+}
+
+.h-logo h1 {
+	margin: 0;
+}
+
+.h-nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+}
+
+.h-nav li {
+	margin-right: 20px;
+}
+
+.h-nav a {
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.h-nav a:hover {
+	text-decoration: underline;
+}
+
+.h-auth {
+	cursor: pointer;
+}
+
+.h-auth a {
+	padding: 0px 8px;
+	color: white;
+}

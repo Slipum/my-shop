@@ -1,6 +1,6 @@
 # Project Documentation "Online Shop"
 
-- [Russian Documentation](./lang-docs/ru.md) - Документация на русском языке.
+- :ru: [Russian Documentation](./lang-docs/ru.md) - Документация на русском языке.
 
 ## 1. Introduction
 
@@ -16,7 +16,7 @@ The project utilizes the following technologies:
 
 - **Frontend:**
 
-  - **<i class="fab fa-react"></i> React** - JavaScript library for building user interfaces.
+  - **:react: React** - JavaScript library for building user interfaces.
   - **<i class="fas fa-route"></i> React Router** - For client-side routing within the application.
   - **<i class="fas fa-arrow-right"></i> Axios** - HTTP client for interacting with the server.
   - **<i class="fab fa-html5"></i> HTML** and **<i class="fab fa-css3-alt"></i> CSS** - Core markup and styling languages.

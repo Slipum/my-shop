@@ -1,27 +1,32 @@
 {
-  "name": "my-shop",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server/server.js",
-    "dev": "nodemon server/server.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "body-parser": "^1.20.2",
-    "connect-sqlite3": "^0.9.15",
-    "cors": "^2.8.5",
-    "express": "^4.19.2",
-    "express-session": "^1.18.0",
-    "multer": "^1.4.5-lts.1",
-    "sqlite3": "^5.1.7"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.4"
-  }
+	"name": "my-shop",
+	"version": "1.0.0",
+	"main": "index.js",
+	"scripts": {
+		"i-client": "cd client && npm install",
+		"i-server": "npm install",
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node server/server.js",
+		"backend": "nodemon server/server.js",
+		"frontend": "cd client && npm start",
+		"dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+		"all-i": "concurrently \"npm run i-client\" \"npm run i-server\""
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"description": "",
+	"dependencies": {
+		"bcryptjs": "^2.4.3",
+		"body-parser": "^1.20.2",
+		"connect-sqlite3": "^0.9.15",
+		"cors": "^2.8.5",
+		"express": "^4.19.2",
+		"express-session": "^1.18.0",
+		"multer": "^1.4.5-lts.1",
+		"sqlite3": "^5.1.7"
+	},
+	"devDependencies": {
+		"nodemon": "^3.1.4"
+	}
 }

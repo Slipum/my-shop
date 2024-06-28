@@ -57,13 +57,45 @@ The project utilizes the following technologies:
   - **Profile Management:** Retrieval of user profile information.
   - **Administrative Functions:** User and product management.
 
-## 5. Running the Project
+## 5. Project Setup
 
 To run the project locally, follow these steps:
 
-- Install dependencies in the project root directory and in the client folder (`npm install`).
-- Start the server-side (`node server/server.js`).
-- Start the client-side (`npm start` in the client folder).
+- **1.** Install dependencies in the project's root directory:
+
+  You can install dependencies for both the server and client sides simultaneously using the following command:
+
+  ```bash
+  npm run all-i
+  ```
+
+- **2.** Run the server and client simultaneously:
+
+  For development convenience, you can start both the server and client with one command:
+
+  ```bash
+  npm run dev
+  ```
+
+  This script uses `concurrently` to run the server and client simultaneously.
+
+> Alternatively, you can start each part separately:
+
+- Start the server-side of the application:
+
+  ```bash
+  npm run backend
+  ```
+
+  This script launches the Node.js server using `nodemon`, which automatically restarts the server upon file changes.
+
+- Start the client-side of the application:
+
+  ```bash
+  npm run frontend
+  ```
+
+  This script navigates to the client directory (`client`) and starts the React application.
 
 ## 6. Conclusion
 

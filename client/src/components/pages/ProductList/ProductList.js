@@ -13,9 +13,14 @@ const ProductList = () => {
 		fetchProducts();
 	}, []);
 
-	const handleAddToCart = (product) => {
-		addToCart(product.id);
-		alert('Product added to cart');
+	const handleAddToCart = async (product) => {
+		try {
+			const response = await addToCart(product.id);
+			console.log('Response from server:', response);
+			alert('Product added to cart');
+		} catch (error) {
+			console.error('Error adding product to cart:', error);
+		}
 	};
 
 	return (
@@ -24,6 +29,7 @@ const ProductList = () => {
 			<ul>
 				{products.map((product) => (
 					<li key={product.id}>
+						<img src={`http://localhost:3001/uploads/${product.image}`} alt={product.name} />
 						<h2>{product.name}</h2>
 						<p>{product.description}</p>
 						<p>${product.price}</p>

@@ -30,7 +30,13 @@ const Cart = () => {
 					{Array.isArray(cartItems) && cartItems.length > 0 ? (
 						cartItems.map((item) => (
 							<li key={item.id}>
-								{item.name} - {item.quantity}
+								<img src={`http://localhost:3001/uploads/${item.image}`} alt={item.product_name} />
+								<div>
+									<h3>{item.product_name}</h3>
+									<p>{item.description}</p>
+									<p>Price: ${item.price.toFixed(2)}</p>
+									<p>Quantity: {item.quantity}</p>
+								</div>
 							</li>
 						))
 					) : (

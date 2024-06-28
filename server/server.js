@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const SQLiteStore = require('connect-sqlite3')(session);
 const cors = require('cors');
+const path = require('path');
 
 const authRoutes = require('./routes/auth');
 const adminRoutes = require('./routes/admin');
@@ -30,6 +31,9 @@ app.use(
 		saveUninitialized: false,
 	}),
 );
+
+// Middleware для обслуживания статических файлов из папки uploads
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use('/api/auth', authRoutes);
 app.use('/api/admin', adminRoutes);

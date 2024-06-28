@@ -15,13 +15,7 @@ const isAuthenticated = (req, res, next) => {
 router.get('/', isAuthenticated, async (req, res) => {
 	const userId = req.session.userId;
 	try {
-		const sql = `
-      SELECT c.id, c.product_id, c.quantity, p.name AS product_name, p.price
-      FROM cart c
-      JOIN products p ON c.product_id = p.id
-      WHERE c.user_id = ?
-    `;
-		const cartItems = await db.all(sql, [userId]);
+		const cartItems = await db.getCartItemsWithDetailsAsync(userId);
 		res.json(cartItems);
 	} catch (error) {
 		console.error('Error fetching cart items:', error);
@@ -34,22 +28,30 @@ router.post('/', isAuthenticated, async (req, res) => {
 	const userId = req.session.userId;
 	const { productId } = req.body;
 
+	console.log(`Adding product ${productId} to cart for user ${userId}`);
+
 	try {
-		const existingItem = await db.get('SELECT * FROM cart WHERE user_id = ? AND product_id = ?', [
-			userId,
-			productId,
-		]);
+		const existingItem = await db.getAsync(
+			'SELECT * FROM cart WHERE user_id = ? AND product_id = ?',
+			[userId, productId],
+		);
+
+		console.log('Existing item:', existingItem);
 
 		if (existingItem) {
-			await db.run('UPDATE cart SET quantity = quantity + 1 WHERE user_id = ? AND product_id = ?', [
-				userId,
-				productId,
-			]);
+			console.log('Item already in cart, updating quantity');
+			const updateResult = await db.runAsync(
+				'UPDATE cart SET quantity = quantity + 1 WHERE user_id = ? AND product_id = ?',
+				[userId, productId],
+			);
+			console.log('Update result:', updateResult);
 		} else {
-			await db.run('INSERT INTO cart (user_id, product_id, quantity) VALUES (?, ?, 1)', [
-				userId,
-				productId,
-			]);
+			console.log('Item not in cart, inserting new item');
+			const insertResult = await db.runAsync(
+				'INSERT INTO cart (user_id, product_id, quantity) VALUES (?, ?, 1)',
+				[userId, productId],
+			);
+			console.log('Insert result:', insertResult);
 		}
 
 		res.status(201).json({ message: 'Item added to cart' });
@@ -65,7 +67,7 @@ router.delete('/:productId', isAuthenticated, async (req, res) => {
 	const productId = parseInt(req.params.productId, 10);
 
 	try {
-		const result = await db.run('DELETE FROM cart WHERE user_id = ? AND product_id = ?', [
+		const result = await db.runAsync('DELETE FROM cart WHERE user_id = ? AND product_id = ?', [
 			userId,
 			productId,
 		]);

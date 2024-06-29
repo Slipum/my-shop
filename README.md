@@ -1,10 +1,10 @@
-# Project Documentation "Online Shop"
+# Project Documentation: "My Shop"
 
 - :ru: [Russian Documentation](./lang-docs/ru.md) - Документация на русском языке.
 
 ## 1. Introduction
 
-This project is an online shop with basic functionalities for user registration, profile management, and shopping cart management.
+This project is an online shop with functionalities for user registration, profile management, shopping cart management, and an admin panel for advanced user and product management.
 
 ## 2. Technology Stack
 
@@ -31,15 +31,17 @@ The project utilizes the following technologies:
 - **Project Structure:**
 
   - **src/**
-    - **components/** - Application components.
-    - **pages/** - Main pages such as registration, login, and user profile.
+    - **components/**
+      - **business/** - Business logic components.
+      - **pages/** - Main pages such as registration, login, and user profile.
     - **api.js** - Module for server interaction using Axios.
     - **App.js** - Main application component containing routing logic.
 
 - **Functionality:**
   - **Registration and Login:** Forms for registering new users and logging into the system.
-  - **Profile:** Display of user information (username and email).
+  - **Profile:** Display of user information (username and email). Access is restricted to authenticated users.
   - **Shopping Cart:** Ability to add and remove items.
+  - **Admin Panel:** Accessible only by users with the username 'admin'. Allows viewing all registered users, adding and deleting products, and ensures deleted products are removed from all users' carts.
 
 ## 4. Server-side
 
@@ -48,14 +50,13 @@ The project utilizes the following technologies:
   - **server/**
     - **routes/** - Routes for handling client requests.
     - **middleware/** - Middleware functions such as authentication checks.
-    - **controllers/** - Controllers for handling route logic.
     - **database.js** - Connection to SQLite database and query execution.
     - **server.js** - Main file launching Express server and configurations.
 
 - **Functionality:**
-  - **Authentication:** User registration, login, and logout.
+  - **Authentication:** User registration, login, and logout. Passwords are stored securely using bcrypt.js.
   - **Profile Management:** Retrieval of user profile information.
-  - **Administrative Functions:** User and product management.
+  - **Administrative Functions:** User and product management. Access is restricted to the admin user. Deleting a product from the admin panel also removes it from all users' carts if it was added there.
 
 ## 5. Project Setup
 
@@ -99,4 +100,4 @@ To run the project locally, follow these steps:
 
 ## 6. Conclusion
 
-This document describes the main aspects of the "Online Shop" project, its functionality, and the technologies used. The project is designed to demonstrate basic principles of web development using React and Node.js.
+This document describes the main aspects of the "Online Shop" project, its functionality, and the technologies used. The project is designed to demonstrate basic principles of web development using React and Node.js, including user authentication, profile management, shopping cart functionality, and administrative controls for user and product management.

@@ -5,7 +5,6 @@ import Admin from './components/pages/Admin/Admin';
 import Cart from './components/pages/Cart/Cart';
 import Home from './components/pages/Home/Home';
 import Login from './components/pages/Login/Login';
-import ProductList from './components/pages/ProductList/ProductList';
 import Profile from './components/pages/Profile/Profile';
 import Register from './components/pages/Register/Register';
 
@@ -45,7 +44,6 @@ const App = () => {
 							path="/admin"
 							element={userProfile.username === 'admin' ? <Admin /> : <Navigate to="/" />}
 						/>
-						<Route path="/products" element={<ProductList />} />
 						<Route path="/cart" element={<Cart />} />
 						<Route path="/profile" element={<Profile />} />
 					</>

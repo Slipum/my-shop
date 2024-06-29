@@ -1,0 +1,126 @@
+.admin-container h1 {
+	text-align: center;
+}
+
+.add-p {
+	align-items: center;
+	display: flex;
+	gap: 20px;
+	background-color: #fff;
+	width: 100%;
+	max-width: 450px;
+	padding: 25px;
+	border-radius: 10px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+	justify-content: center;
+}
+
+.add-p form {
+	width: 100%;
+}
+
+form h2 {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.list-us {
+	margin: 15px 0;
+	display: flex;
+	justify-content: center;
+}
+
+.reg-user h2 {
+	color: cornflowerblue;
+	text-align: center;
+}
+
+.reg-user ul {
+	list-style-type: disc;
+	padding-left: 20px;
+}
+
+.add-p-container {
+	display: flex;
+	justify-content: center;
+}
+
+.admin-container hr {
+	margin: 15px 0;
+	color: black;
+	border: 0.1px solid grey;
+}
+
+/* Продукты */
+
+.all-products h2 {
+	text-align: center;
+}
+
+.products-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+	gap: 20px;
+}
+
+.s-product {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 15px;
+	background-color: #f9f9f9;
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	text-align: center;
+	justify-content: space-between;
+}
+
+.s-product img {
+	max-width: 100%;
+	height: auto;
+	max-height: 150px;
+	object-fit: cover;
+	border-radius: 10px;
+	margin-bottom: 10px;
+}
+
+.product-info {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+}
+
+.product-info p {
+	margin: 0;
+}
+
+.product-info button {
+	padding: 5px 10px;
+	background-color: #ff4b5c;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	width: 100%;
+}
+
+.product-info button:hover {
+	background-color: #ff1c3d;
+}
+
+/* Сообщения */
+
+.success-message {
+	color: green;
+	text-align: center;
+	margin-top: 10px;
+}
+
+.error-message {
+	color: red;
+	text-align: center;
+	margin-top: 10px;
+}

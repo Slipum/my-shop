@@ -21,7 +21,9 @@ const Header = () => {
 	return (
 		<header className="header-container">
 			<div className="h-logo">
-				<h1>My-Shop</h1>
+				<a href="/">
+					<h1>My-Shop</h1>
+				</a>
 			</div>
 			<nav className="h-nav">
 				<ul>
@@ -29,14 +31,21 @@ const Header = () => {
 						<a href="/">Home</a>
 					</li>
 					<li>
-						<a href="/products">Products</a>
+						<a href="/about">About us</a>
 					</li>
 				</ul>
 			</nav>
 			<div className="h-auth">
 				{profile.username ? (
 					<>
-						<a href="/cart">Cart</a>
+						{profile.username === 'admin' ? (
+							<a className="goto" href="/admin">
+								Admin
+							</a>
+						) : null}
+						<a className="goto" href="/cart">
+							Cart
+						</a>
 						<a className="goto" href="/profile">
 							Profile: {profile.username}
 						</a>

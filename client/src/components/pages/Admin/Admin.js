@@ -9,6 +9,8 @@ const Admin = () => {
 	const [price, setPrice] = useState('');
 	const [description, setDescription] = useState('');
 	const [image, setImage] = useState(null);
+	const [message, setMessage] = useState('');
+	const [error, setError] = useState('');
 
 	// Загрузка пользователей
 	useEffect(() => {
@@ -17,7 +19,7 @@ const Admin = () => {
 				const response = await getUsers();
 				setUsers(response.data);
 			} catch (err) {
-				alert('Error fetching users');
+				setError('Ошибка при загрузке пользователей');
 			}
 		};
 		fetchUsers();
@@ -30,7 +32,7 @@ const Admin = () => {
 				const response = await getProducts();
 				setProducts(response.data);
 			} catch (err) {
-				alert('Error fetching products');
+				setError('Ошибка при загрузке товаров');
 			}
 		};
 		fetchProducts();
@@ -46,10 +48,12 @@ const Admin = () => {
 		try {
 			await deleteProduct(productId);
 			setProducts(products.filter((product) => product.id !== productId));
-			alert('Продукт успешно удален');
+			setMessage('Продукт успешно удален');
+			setError('');
 		} catch (error) {
 			console.error('Ошибка при удалении продукта:', error);
-			alert('Не удалось удалить продукт');
+			setError('Не удалось удалить продукт');
+			setMessage('');
 		}
 	};
 
@@ -65,65 +69,102 @@ const Admin = () => {
 
 		try {
 			await addProduct(formData);
-			alert('Продукт успешно добавлен');
+			setMessage('Продукт успешно добавлен');
+			setError('');
 			setName('');
 			setPrice('');
 			setDescription('');
 			setImage(null);
+			// Обновление списка продуктов
+			const response = await getProducts();
+			setProducts(response.data);
 		} catch (error) {
 			console.error('Ошибка при добавлении продукта:', error);
-			alert('Не удалось добавить продукт');
+			setError('Не удалось добавить продукт');
+			setMessage('');
 		}
 	};
 
 	return (
-		<div className="admin-container">
-			<h1>Admin Panel</h1>
-
-			<h2>Registered Users</h2>
-			<ul>
-				{users.map((user) => (
-					<li key={user.id}>{user.username}</li>
-				))}
-			</ul>
-
-			<hr />
-
-			<h2>Add Product</h2>
-			<form onSubmit={handleSubmit}>
-				<label>Name:</label>
-				<input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
-				<br />
-				<label>Price:</label>
-				<input
-					type="number"
-					step="0.01"
-					value={price}
-					onChange={(e) => setPrice(e.target.value)}
-					required
-				/>
-				<br />
-				<label>Description:</label>
-				<textarea value={description} onChange={(e) => setDescription(e.target.value)} required />
-				<br />
-				<label>Choose Image:</label>
-				<input type="file" accept="image/*" onChange={handleImageChange} required />
-				<br />
-				<button type="submit">Submit Add</button>
-			</form>
-
-			<hr />
-
-			<h2>Products</h2>
-			<ul>
-				{products.map((product) => (
-					<li key={product.id}>
-						{product.name} - ${product.price}{' '}
-						<button onClick={() => handleDeleteProduct(product.id)}>Delete</button>
-					</li>
-				))}
-			</ul>
-		</div>
+		<>
+			<div className="icon-container">
+				<a href="/">
+					<i className="fa-solid fa-right-from-bracket"></i>
+				</a>
+			</div>
+			<div className="admin-container">
+				<h1>Admin Panel</h1>
+				<div className="reg-user">
+					<h2>Registered Users</h2>
+					<div className="list-us">
+						<ul>
+							{users.map((user) => (
+								<li key={user.id}>{user.username}</li>
+							))}
+						</ul>
+					</div>
+				</div>
+				<hr />
+				<div className="add-p-container">
+					<div className="add-p">
+						<form onSubmit={handleSubmit}>
+							<h2>Add Product</h2>
+							{message && <p className="success-message">{message}</p>}
+							{error && <p className="error-message">{error}</p>}
+							<div className="form-controll">
+								<label>Name:</label>
+								<input
+									type="text"
+									value={name}
+									onChange={(e) => setName(e.target.value)}
+									required
+								/>
+							</div>
+							<div className="form-controll">
+								<label>Price:</label>
+								<input
+									type="number"
+									step="0.01"
+									value={price}
+									onChange={(e) => setPrice(e.target.value)}
+									required
+								/>
+							</div>
+							<div className="form-controll">
+								<label>Description:</label>
+								<textarea
+									value={description}
+									onChange={(e) => setDescription(e.target.value)}
+									required
+								/>
+							</div>
+							<div className="form-controll">
+								<label>Choose Image:</label>
+								<input type="file" accept="image/*" onChange={handleImageChange} required />
+							</div>
+							<button type="submit">Submit Add</button>
+						</form>
+					</div>
+				</div>
+				<hr />
+				<div className="all-products">
+					<h2>Products</h2>
+					<div className="products-grid">
+						{products.map((product) => (
+							<div className="s-product" key={product.id}>
+								<img src={`http://localhost:3001/uploads/${product.image}`} alt={product.name} />
+								<div className="product-info">
+									<p>
+										{product.name} - ${product.price}
+									</p>
+									<button onClick={() => handleDeleteProduct(product.id)}>Delete</button>
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+			</div>
+		</>
 	);
 };
 

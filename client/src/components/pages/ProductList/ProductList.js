@@ -24,16 +24,25 @@ const ProductList = () => {
 	};
 
 	return (
-		<div>
-			<h1>Products</h1>
-			<ul>
+		<div className="products-container">
+			<ul className="products-list">
 				{products.map((product) => (
-					<li key={product.id}>
-						<img src={`http://localhost:3001/uploads/${product.image}`} alt={product.name} />
-						<h2>{product.name}</h2>
-						<p>{product.description}</p>
-						<p>${product.price}</p>
-						<button onClick={() => handleAddToCart(product)}>Add to Cart</button>
+					<li className="product-item" key={product.id}>
+						<div className="image-wrapper">
+							<img
+								src={`http://localhost:3001/uploads/${product.image}`}
+								alt={product.name}
+								className="product-image"
+							/>
+						</div>
+						<div className="product-ginfo">
+							<h2 className="product-name">{product.name}</h2>
+							<p className="product-description">{product.description}</p>
+							<p className="product-price">${product.price}</p>
+							<button onClick={() => handleAddToCart(product)} className="add-to-cart-button">
+								Add to Cart
+							</button>
+						</div>
 					</li>
 				))}
 			</ul>

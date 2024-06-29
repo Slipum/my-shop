@@ -67,13 +67,34 @@ router.delete('/:productId', isAuthenticated, async (req, res) => {
 	const productId = parseInt(req.params.productId, 10);
 
 	try {
-		const result = await db.runAsync('DELETE FROM cart WHERE user_id = ? AND product_id = ?', [
-			userId,
-			productId,
-		]);
+		const existingItem = await db.getAsync(
+			'SELECT * FROM cart WHERE user_id = ? AND product_id = ?',
+			[userId, productId],
+		);
 
-		if (result.changes === 0) {
+		if (!existingItem) {
 			return res.status(404).json({ message: 'Item not found in cart' });
+		}
+
+		let updateQuantity = existingItem.quantity - 1;
+		if (updateQuantity < 1) {
+			// Если количество становится меньше 1, удаляем запись
+			const result = await db.runAsync('DELETE FROM cart WHERE user_id = ? AND product_id = ?', [
+				userId,
+				productId,
+			]);
+
+			if (result.changes === 0) {
+				return res.status(404).json({ message: 'Item not found in cart' });
+			}
+		} else {
+			// Иначе обновляем количество
+			const updateResult = await db.runAsync(
+				'UPDATE cart SET quantity = ? WHERE user_id = ? AND product_id = ?',
+				[updateQuantity, userId, productId],
+			);
+
+			console.log('Update result:', updateResult);
 		}
 
 		res.status(200).json({ message: 'Item removed from cart' });

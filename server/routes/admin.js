@@ -33,16 +33,25 @@ router.get('/products', (req, res) => {
 });
 
 // Удаление продукта
-router.delete('/products/:productId', (req, res) => {
+router.delete('/products/:productId', async (req, res) => {
 	const productId = req.params.productId;
-	db.run(`DELETE FROM products WHERE id = ?`, [productId], (err) => {
-		if (err) {
-			console.error('Error deleting product:', err);
-			res.status(500).json({ message: 'Internal server error' });
-		} else {
-			res.status(200).json({ message: 'Product deleted successfully' });
+
+	try {
+		// Удаляем продукт из таблицы products
+		const result = await db.runAsync('DELETE FROM products WHERE id = ?', [productId]);
+
+		if (result.changes === 0) {
+			return res.status(404).json({ message: 'Product not found' });
 		}
-	});
+
+		// Теперь удаляем товар из корзины всех пользователей
+		await db.runAsync('DELETE FROM cart WHERE product_id = ?', [productId]);
+
+		res.status(200).json({ message: 'Product and related cart items deleted' });
+	} catch (error) {
+		console.error('Error deleting product and related cart items:', error);
+		res.status(500).json({ message: 'Internal server error' });
+	}
 });
 
 // Конфигурация Multer для загрузки файлов

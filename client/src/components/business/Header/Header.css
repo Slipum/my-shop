@@ -13,6 +13,10 @@
 	color: white;
 }
 
+.h-logo {
+	padding-right: 45px;
+}
+
 .h-logo h1 {
 	margin: 0;
 }
@@ -25,7 +29,7 @@
 }
 
 .h-nav li {
-	margin-right: 20px;
+	margin: 0 10px;
 }
 
 .h-nav a {
@@ -35,6 +39,18 @@
 }
 
 .h-nav a:hover {
+	text-decoration: underline;
+}
+
+.goto:hover {
+	text-decoration: underline;
+}
+
+.h-login:hover {
+	text-decoration: underline;
+}
+
+.h-register:hover {
 	text-decoration: underline;
 }
 

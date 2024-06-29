@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Navigate, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import { getUserProfile } from './api';
+import About from './components/pages/About/About';
 import Admin from './components/pages/Admin/Admin';
 import Cart from './components/pages/Cart/Cart';
 import Home from './components/pages/Home/Home';
@@ -38,6 +39,7 @@ const App = () => {
 				<Route path="/" element={<Home />} />
 				<Route path="/login" element={<Login />} />
 				<Route path="/register" element={<Register />} />
+				<Route path="/about" element={<About />} />
 				{userProfile && ( // Проверяем, что userProfile загружен
 					<>
 						<Route

@@ -82,7 +82,7 @@ const Cart = () => {
 									</div>
 								))
 							) : (
-								<li>No items in cart</li>
+								<li className="no-items">No items in cart</li>
 							)}
 						</ul>
 					</div>

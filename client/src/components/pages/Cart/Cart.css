@@ -78,3 +78,8 @@
 .cart-container {
 	margin-bottom: 80px;
 }
+
+.no-items {
+	margin: 40px;
+	font-size: 24px;
+}

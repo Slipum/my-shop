@@ -6,6 +6,7 @@ import Admin from './components/pages/Admin/Admin';
 import Cart from './components/pages/Cart/Cart';
 import Home from './components/pages/Home/Home';
 import Login from './components/pages/Login/Login';
+import NotFound from './components/pages/NotFound/NotFound';
 import Profile from './components/pages/Profile/Profile';
 import Register from './components/pages/Register/Register';
 
@@ -30,21 +31,21 @@ const App = () => {
 	}, []);
 
 	if (loading) {
-		return <div>Loading...</div>; // Можно отображать спиннер загрузки или другой индикатор
+		return <div>Loading...</div>;
 	}
 
 	return (
 		<Router>
 			<Routes>
 				<Route path="/" element={<Home />} />
-				<Route path="/login" element={<Login />} />
-				<Route path="/register" element={<Register />} />
+				<Route path="/login" element={userProfile ? <Navigate to="/" /> : <Login />} />
+				<Route path="/register" element={userProfile ? <Navigate to="/" /> : <Register />} />
 				<Route path="/about" element={<About />} />
 				{userProfile && ( // Проверяем, что userProfile загружен
 					<>
 						<Route
 							path="/admin"
-							element={userProfile.username === 'admin' ? <Admin /> : <Navigate to="/" />}
+							element={userProfile.username === 'admin' ? <Admin /> : <NotFound />}
 						/>
 						<Route path="/cart" element={<Cart />} />
 						<Route path="/profile" element={<Profile />} />
@@ -53,6 +54,7 @@ const App = () => {
 				{!userProfile && ( // Если userProfile не загружен, перенаправляем на страницу логина
 					<Route path="/*" element={<Navigate to="/login" />} />
 				)}
+				<Route path="*" element={<NotFound />} />
 			</Routes>
 		</Router>
 	);

@@ -29,7 +29,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 200px; /* Adjust height as needed */
+	height: 200px;
 	overflow: hidden;
 	border-radius: 10px;
 }
@@ -65,6 +65,7 @@
 }
 
 .add-to-cart-button {
+	font-weight: 500;
 	background-color: #28a745;
 	color: #fff;
 	border: none;
@@ -76,4 +77,18 @@
 
 .add-to-cart-button:hover {
 	background-color: #218838;
+}
+
+.response {
+	display: flex;
+}
+
+.quantity {
+	margin: 10px;
+	height: 20px;
+	margin-left: 0;
+}
+
+.quantity p {
+	width: 50px;
 }

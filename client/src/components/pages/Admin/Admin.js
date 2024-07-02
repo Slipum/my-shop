@@ -61,6 +61,12 @@ const Admin = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
+		// Проверка на заполнение всех полей
+		if (!name || !price || !description || !image) {
+			setError('Все поля должны быть заполнены');
+			return;
+		}
+
 		const formData = new FormData();
 		formData.append('name', name);
 		formData.append('price', price);

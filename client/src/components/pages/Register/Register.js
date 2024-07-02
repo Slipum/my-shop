@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
-import { register } from '../../../api';
+import { login, register } from '../../../api';
 import './Register.css';
 
 const Register = () => {
@@ -9,6 +9,8 @@ const Register = () => {
 	const [password, setPassword] = useState('');
 	const [registrationMessage, setRegistrationMessage] = useState('');
 	const [registrationMessageClass, setRegistrationMessageClass] = useState('');
+	const [redirect, setRedirect] = useState(false);
+
 	const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 	const validateEmail = (email) => {
@@ -26,6 +28,8 @@ const Register = () => {
 			await register(username, email, password);
 			setRegistrationMessage('User registered');
 			setRegistrationMessageClass('success');
+			await login(username, password);
+			setRedirect(true);
 		} catch (err) {
 			setRegistrationMessage('Error registering user');
 			setRegistrationMessageClass('error');
@@ -34,8 +38,8 @@ const Register = () => {
 
 	return (
 		<div className="auntification">
-			{registrationMessage === 'User registered' ? (
-				<Navigate to="/login" />
+			{redirect ? (
+				<Navigate to="/" />
 			) : (
 				<>
 					<div className="icon-container">

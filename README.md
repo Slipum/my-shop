@@ -54,9 +54,12 @@ The project utilizes the following technologies:
     - **server.js** - Main file launching Express server and configurations.
 
 - **Functionality:**
+
   - **Authentication:** User registration, login, and logout. Passwords are stored securely using bcrypt.js.
   - **Profile Management:** Retrieval of user profile information.
   - **Administrative Functions:** User and product management. Access is restricted to the admin user. Deleting a product from the admin panel also removes it from all users' carts if it was added there.
+
+  > In order to enter the admin panel you need to register a user under username: `admin` and a new button to enter the admin panel will appear on the _header_.
 
 ## 5. Project Setup
 

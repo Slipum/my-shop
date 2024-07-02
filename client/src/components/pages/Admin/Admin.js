@@ -40,7 +40,24 @@ const Admin = () => {
 
 	// Обработчик изменения выбранного изображения
 	const handleImageChange = (e) => {
-		setImage(e.target.files[0]);
+		const file = e.target.files[0];
+		const validImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
+		const maxSize = 5 * 1024 * 1024;
+
+		if (file && !validImageTypes.includes(file.type)) {
+			setError('Файл должен быть изображением (jpeg, png, gif)');
+			setImage(null);
+			return;
+		}
+
+		if (file && file.size > maxSize) {
+			setError('Файл не должен превышать 5 MB');
+			setImage(null);
+			return;
+		}
+
+		setImage(file);
+		setError('');
 	};
 
 	// Обработчик удаления продукта
